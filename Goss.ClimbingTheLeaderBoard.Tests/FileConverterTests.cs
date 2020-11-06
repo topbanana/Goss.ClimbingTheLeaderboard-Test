@@ -45,7 +45,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         public void Convert_WhereFileDoesNotHaveFourLines_ThrowsException(int numberOfLines)
         {
             // arrange
-            _fileContents = new[] {"7", "100 100 50 40 40 20 10", "4", "5 25 50 120", "1"};
+            _fileContents = new[] {"7", "100 100 50 40 40 20 10", "4", "5 25 50 120", "1", "123"}.Take(numberOfLines).ToArray();
             // act
             Func<Task> act = async () => await ClassUnderTest.Convert(_fixture.Create<string>());
             // assert
