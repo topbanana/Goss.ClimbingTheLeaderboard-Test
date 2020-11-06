@@ -8,6 +8,7 @@ Please note that the expected output in the supplied test document is incorrect:
     4
     5 25 50 120
 should produce:
+
     8
     5
     3
@@ -18,6 +19,7 @@ should produce:
     5
     50 65 77 90 102
 should produce:
+
     9
     7
     5
