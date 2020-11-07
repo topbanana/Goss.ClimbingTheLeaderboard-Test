@@ -11,6 +11,5 @@ namespace Goss.ClimbingTheLeaderBoard
         {
             return File.ReadAllLinesAsync(filePath);
         }
-
     }
 }

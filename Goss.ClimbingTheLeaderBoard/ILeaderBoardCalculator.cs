@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Goss.ClimbingTheLeaderBoard.Models;
+﻿using Goss.ClimbingTheLeaderBoard.Models;
 
 namespace Goss.ClimbingTheLeaderBoard
 {

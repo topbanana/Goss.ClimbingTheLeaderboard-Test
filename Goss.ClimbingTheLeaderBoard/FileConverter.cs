@@ -32,6 +32,7 @@ namespace Goss.ClimbingTheLeaderBoard
                     {
                         throw new InvalidOperationException($"Non-numeric value in leader-board record '{x}'.");
                     }
+
                     return result;
                 });
             var playersGames = System.Convert.ToInt32(lines.Skip(2).Take(1).First());
@@ -42,12 +43,13 @@ namespace Goss.ClimbingTheLeaderBoard
                     {
                         throw new InvalidOperationException($"Non-numeric value in players-scores record '{x}'.");
                     }
+
                     return result;
                 });
 
             return new RequestModel(
-                numberOfPlayers, 
-                leaderBoardScores.ToArray(), 
+                numberOfPlayers,
+                leaderBoardScores.ToArray(),
                 playersGames,
                 playersScores.ToArray());
         }

@@ -35,7 +35,7 @@ namespace Goss.ClimbingTheLeaderBoard
                 position++;
             }
 
-            return new ResponseModel(playerPositions.Reverse().ToArray());
+            return new ResponseModel(playerPositions.ToArray());
         }
     }
 }
