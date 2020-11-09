@@ -11,21 +11,21 @@ namespace Goss.ClimbingTheLeaderBoard
         {
             var playerPositions = new int[request.PlayersGames];
             var leaderBoard = request.LeaderBoardScores.Distinct().OrderByDescending(x => x).ToArray();
-            for (var gameNumber = request.PlayersGames; gameNumber > 0; gameNumber--)
+            for (var index = 0; index < request.PlayersGames; index++)
             {
                 var position = 0;
                 while (++position <= leaderBoard.Length)
                 {
-                    if (request.PlayersScores[gameNumber - 1] >= leaderBoard[position - 1])
+                    if (request.PlayersScores[index] >= leaderBoard[position - 1])
                     {
-                        playerPositions[gameNumber - 1] = position;
+                        playerPositions[index] = position;
                         break;
                     }
                 }
 
-                if (playerPositions[gameNumber - 1] == 0)
+                if (playerPositions[index] == 0)
                 {
-                    playerPositions[gameNumber - 1] = leaderBoard.Length + 1;
+                    playerPositions[index] = leaderBoard.Length + 1;
                 }
             }
 
