@@ -17,11 +17,13 @@ namespace Goss.ClimbingTheLeaderBoard
                 playerPositions[index] = leaderBoard.Length + 1;
                 while (++position <= leaderBoard.Length)
                 {
-                    if (request.PlayersScores[index] >= leaderBoard[position - 1])
+                    if (request.PlayersScores[index] < leaderBoard[position - 1])
                     {
-                        playerPositions[index] = position;
-                        break;
+                        continue;
                     }
+
+                    playerPositions[index] = position;
+                    break;
                 }
             }
 
