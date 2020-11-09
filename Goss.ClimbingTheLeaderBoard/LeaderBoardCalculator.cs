@@ -14,6 +14,7 @@ namespace Goss.ClimbingTheLeaderBoard
             for (var index = 0; index < request.PlayersGames; index++)
             {
                 var position = 0;
+                playerPositions[index] = leaderBoard.Length + 1;
                 while (++position <= leaderBoard.Length)
                 {
                     if (request.PlayersScores[index] >= leaderBoard[position - 1])
@@ -21,11 +22,6 @@ namespace Goss.ClimbingTheLeaderBoard
                         playerPositions[index] = position;
                         break;
                     }
-                }
-
-                if (playerPositions[index] == 0)
-                {
-                    playerPositions[index] = leaderBoard.Length + 1;
                 }
             }
 
