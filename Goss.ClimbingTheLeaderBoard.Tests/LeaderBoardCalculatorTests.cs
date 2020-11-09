@@ -37,5 +37,27 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
             // assert
             result.Positions.Should().BeEquivalentTo(new[] {6, 5, 4, 2, 1}).And.BeInDescendingOrder();
         }
+
+        [Fact]
+        public void Calculate_TestCase3_IsCorrect()
+        {
+            // arrange
+            var input = new RequestModel(6, new[] {100, 90, 90, 80, 75, 60}, 4, new[] {50, 65, 77, 90});
+            // act
+            var result = ClassUnderTest.Calculate(input);
+            // assert
+            result.Positions.Should().BeEquivalentTo(new[] {6, 5, 4, 2}).And.BeInDescendingOrder();
+        }
+
+        [Fact]
+        public void Calculate_TestCase4_IsCorrect()
+        {
+            // arrange
+            var input = new RequestModel(6, new[] {100, 90, 90, 80, 75, 60}, 4, new[] {65, 77, 90, 102});
+            // act
+            var result = ClassUnderTest.Calculate(input);
+            // assert
+            result.Positions.Should().BeEquivalentTo(new[] {5, 4, 2, 1}).And.BeInDescendingOrder();
+        }
     }
 }
