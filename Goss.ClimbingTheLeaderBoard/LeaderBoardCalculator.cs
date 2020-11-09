@@ -13,22 +13,19 @@ namespace Goss.ClimbingTheLeaderBoard
             var leaderBoard = request.LeaderBoardScores.Distinct().OrderByDescending(x => x).ToArray();
             for (var gameNumber = request.PlayersGames; gameNumber > 0; gameNumber--)
             {
-                var foundPosition = false;
                 var position = 1;
-                while (position <= leaderBoard.Length && !foundPosition)
+                while (position <= leaderBoard.Length)
                 {
                     if (request.PlayersScores[gameNumber - 1] >= leaderBoard[position - 1])
                     {
                         playerPositions[gameNumber - 1] = position;
-                        foundPosition = true;
+                        break;
                     }
-                    else
-                    {
-                        position++;
-                    }
+
+                    position++;
                 }
 
-                if (!foundPosition)
+                if (playerPositions[gameNumber - 1] == 0)
                 {
                     playerPositions[gameNumber - 1] = leaderBoard.Length + 1;
                 }
