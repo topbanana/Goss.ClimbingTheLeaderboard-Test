@@ -9,33 +9,32 @@ namespace Goss.ClimbingTheLeaderBoard
         /// <inheritdoc />
         public ResponseModel Calculate(RequestModel request)
         {
-            var leaderBoardScores = new LeaderBoardScore[request.NumberOfPlayers + request.PlayersGames];
-            var index = 0;
-            foreach (var score in request.LeaderBoardScores)
-            {
-                leaderBoardScores[index++] = new LeaderBoardScore(score, Player.Existing);
-            }
-
-            foreach (var score in request.PlayersScores)
-            {
-                leaderBoardScores[index++] = new LeaderBoardScore(score, Player.New);
-            }
-
-            var groupedScores = leaderBoardScores.GroupBy(x => x.Score).OrderByDescending(x => x.Key);
             var playerPositions = new int[request.PlayersGames];
-            index = 0;
-            var position = 1;
-            foreach (var groupedScore in groupedScores)
+            var leaderBoard = request.LeaderBoardScores.Distinct().OrderByDescending(x => x).ToArray();
+            for (var gameNumber = request.PlayersGames; gameNumber > 0; gameNumber--)
             {
-                if (groupedScore.Any(x => x.Player == Player.New))
+                var foundPosition = false;
+                var position = 1;
+                while (position <= leaderBoard.Length && !foundPosition)
                 {
-                    playerPositions[index++] = position;
+                    if (request.PlayersScores[gameNumber - 1] >= leaderBoard[position - 1])
+                    {
+                        playerPositions[gameNumber - 1] = position;
+                        foundPosition = true;
+                    }
+                    else
+                    {
+                        position++;
+                    }
                 }
 
-                position++;
+                if (!foundPosition)
+                {
+                    playerPositions[gameNumber - 1] = leaderBoard.Length + 1;
+                }
             }
 
-            return new ResponseModel(playerPositions.ToArray());
+            return new ResponseModel(playerPositions);
         }
     }
 }

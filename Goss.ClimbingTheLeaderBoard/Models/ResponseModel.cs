@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 namespace Goss.ClimbingTheLeaderBoard.Models
 {
@@ -15,7 +14,7 @@ namespace Goss.ClimbingTheLeaderBoard.Models
         public override string ToString()
         {
             var items = new StringBuilder();
-            foreach (var position in Positions.Reverse())
+            foreach (var position in Positions)
             {
                 items.AppendLine(position.ToString());
             }
