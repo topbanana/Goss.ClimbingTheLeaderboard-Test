@@ -33,6 +33,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         [InlineData(typeof(LeaderBoardParallelCalculator))]
         [InlineData(typeof(LeaderBoardParallelNonDistinctCalculator))]
         [InlineData(typeof(LeaderBoardTaskCalculator))]
+        [InlineData(typeof(LeaderBoardTaskNonDistinctCalculator))]
         public async Task Calculate_TestCase1_IsCorrect(Type implementation)
         {
             // arrange
@@ -49,6 +50,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         [InlineData(typeof(LeaderBoardParallelCalculator))]
         [InlineData(typeof(LeaderBoardParallelNonDistinctCalculator))]
         [InlineData(typeof(LeaderBoardTaskCalculator))]
+        [InlineData(typeof(LeaderBoardTaskNonDistinctCalculator))]
         public async Task Calculate_TestCase2_IsCorrect(Type implementation)
         {
             // arrange
@@ -65,6 +67,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         [InlineData(typeof(LeaderBoardParallelCalculator))]
         [InlineData(typeof(LeaderBoardParallelNonDistinctCalculator))]
         [InlineData(typeof(LeaderBoardTaskCalculator))]
+        [InlineData(typeof(LeaderBoardTaskNonDistinctCalculator))]
         public async Task Calculate_TestCase3_IsCorrect(Type implementation)
         {
             // arrange
@@ -81,6 +84,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         [InlineData(typeof(LeaderBoardParallelCalculator))]
         [InlineData(typeof(LeaderBoardParallelNonDistinctCalculator))]
         [InlineData(typeof(LeaderBoardTaskCalculator))]
+        [InlineData(typeof(LeaderBoardTaskNonDistinctCalculator))]
         public async Task Calculate_TestCase4_IsCorrect(Type implementation)
         {
             // arrange
@@ -97,16 +101,19 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
         [InlineData(1000, typeof(LeaderBoardParallelCalculator))]
         [InlineData(1000, typeof(LeaderBoardParallelNonDistinctCalculator))]
         [InlineData(1000, typeof(LeaderBoardTaskCalculator))]
-        //[InlineData(100000, typeof(LeaderBoardOriginalCalculator))]
-        //[InlineData(100000, typeof(LeaderBoardNonDistinctCalculator))]
-        //[InlineData(100000, typeof(LeaderBoardParallelCalculator))]
-        //[InlineData(100000, typeof(LeaderBoardParallelNonDistinctCalculator))]
-        //[InlineData(100000, typeof(LeaderBoardTaskCalculator))]
+        [InlineData(1000, typeof(LeaderBoardTaskNonDistinctCalculator))]
+        [InlineData(100000, typeof(LeaderBoardOriginalCalculator))]
+        [InlineData(100000, typeof(LeaderBoardNonDistinctCalculator))]
+        [InlineData(100000, typeof(LeaderBoardParallelCalculator))]
+        [InlineData(100000, typeof(LeaderBoardParallelNonDistinctCalculator))]
+        [InlineData(100000, typeof(LeaderBoardTaskCalculator))]
+        [InlineData(100000, typeof(LeaderBoardTaskNonDistinctCalculator))]
         //[InlineData(10000000, typeof(LeaderBoardOriginalCalculator))]
         //[InlineData(10000000, typeof(LeaderBoardNonDistinctCalculator))]
         //[InlineData(10000000, typeof(LeaderBoardParallelCalculator))]
         //[InlineData(10000000, typeof(LeaderBoardParallelNonDistinctCalculator))]
         //[InlineData(10000000, typeof(LeaderBoardTaskCalculator))]
+        //[InlineData(100000, typeof(LeaderBoardTaskNonDistinctCalculator))]
         public async Task Calculate_TestCase7_IsCorrect(int size, Type implementation)
         {
             // arrange
