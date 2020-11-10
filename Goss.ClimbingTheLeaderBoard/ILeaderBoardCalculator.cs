@@ -1,4 +1,5 @@
-﻿using Goss.ClimbingTheLeaderBoard.Models;
+﻿using System.Threading.Tasks;
+using Goss.ClimbingTheLeaderBoard.Models;
 
 namespace Goss.ClimbingTheLeaderBoard
 {
@@ -12,6 +13,6 @@ namespace Goss.ClimbingTheLeaderBoard
         /// </summary>
         /// <param name="request">The model with all the required information to calculate the player's position</param>
         /// <returns>The players positions on the leader board</returns>
-        ResponseModel Calculate(RequestModel request);
+        Task<ResponseModel> Calculate(RequestModel request);
     }
 }

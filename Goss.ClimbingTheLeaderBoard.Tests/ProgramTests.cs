@@ -54,7 +54,7 @@ namespace Goss.ClimbingTheLeaderBoard.Tests
             var expected = _fixture.Create<ResponseModel>();
             _mocker.GetMock<ILeaderBoardCalculator>()
                 .Setup(x => x.Calculate(It.IsAny<RequestModel>()))
-                .Returns(expected);
+                .ReturnsAsync(expected);
             // act
             var result = await ClassUnderTest.Execute(_fixture.Create<string>());
             // assert

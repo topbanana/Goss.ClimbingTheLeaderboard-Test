@@ -1,13 +1,14 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Goss.ClimbingTheLeaderBoard.Models;
 
 namespace Goss.ClimbingTheLeaderBoard
 {
     /// <inheritdoc />
-    public class LeaderBoardCalculator : ILeaderBoardCalculator
+    public class LeaderBoardOriginalCalculator : ILeaderBoardCalculator
     {
         /// <inheritdoc />
-        public ResponseModel Calculate(RequestModel request)
+        public Task<ResponseModel> Calculate(RequestModel request)
         {
             var playerPositions = new int[request.PlayersGames];
             var leaderBoard = request.LeaderBoardScores.Distinct().OrderByDescending(x => x).ToArray();
@@ -27,7 +28,7 @@ namespace Goss.ClimbingTheLeaderBoard
                 }
             }
 
-            return new ResponseModel(playerPositions);
+            return Task.FromResult(new ResponseModel(playerPositions));
         }
     }
 }

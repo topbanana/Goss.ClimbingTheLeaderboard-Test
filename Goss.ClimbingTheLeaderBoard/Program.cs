@@ -22,7 +22,7 @@ namespace Goss.ClimbingTheLeaderBoard
         public async Task<ResponseModel> Execute(string filePath)
         {
             var inputModel = await _fileConverter.Convert(filePath);
-            return _leaderBoardCalculator.Calculate(inputModel);
+            return await _leaderBoardCalculator.Calculate(inputModel);
         }
 
         private static async Task Main(string[] args)
@@ -49,7 +49,7 @@ namespace Goss.ClimbingTheLeaderBoard
                 .AddScoped<Program>()
                 .AddSingleton<IFileSystem, FileSystem>()
                 .AddScoped<IFileConverter, FileConverter>()
-                .AddScoped<ILeaderBoardCalculator, LeaderBoardCalculator>()
+                .AddScoped<ILeaderBoardCalculator, LeaderBoardOriginalCalculator>()
                 .BuildServiceProvider();
         }
     }
